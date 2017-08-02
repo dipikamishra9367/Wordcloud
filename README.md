@@ -9,8 +9,6 @@ library(wordcloud)
 library(qdap)
 library(tm)
 library(dplyr)
-# Input data files are available in the "../input/" directory.
-# For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
 hacker_news <- read.csv("../input/hacker_news_sample.csv",stringsAsFactors=F)
 
