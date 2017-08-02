@@ -14,7 +14,6 @@ library(dplyr)
 
 hacker_news <- read.csv("../input/hacker_news_sample.csv",stringsAsFactors=F)
 
-# Any results you write to the current directory are saved as output.
 str(hacker_news)
 summary(hacker_news)
 
@@ -25,7 +24,7 @@ hacker_news <- hacker_news  %>% filter(type == "story")
 txt_news <- hacker_news$text
 print(txt_news)
 txt_news <- gsub("[^[:alnum:]///' ]", "", txt_news)
-
+#cleaning the text using a qdap function
 qdap_clean <- function(y) {
  y<- replace_abbreviation(y)
   y<- replace_contraction(y)
@@ -40,7 +39,7 @@ qdap_clean <- function(y) {
 txt_news <- qdap_clean(txt_news)
 
 text_corp <- VCorpus(VectorSource(txt_news))
-
+#cleaning the corpus
 clean_corpus <- function(corpus){
   
   corpus <- tm_map(corpus, removePunctuation)
